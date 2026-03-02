@@ -1,11 +1,11 @@
 package org.perfecto.springlearning;
 
-import lombok.Builder;
-import org.perfecto.springlearning.models.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing
 public class SpringLearningApplication {
 
     public static void main(String[] args) {

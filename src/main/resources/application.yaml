@@ -4,12 +4,12 @@ spring:
 
   datasource:
     # We use the standard JDBC format for Spring
-#    url: jdbc:postgresql://ep-purple-leaf-a1wz2tog-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
-#    username: neondb_owner
-#    password: npg_YnhT6EX4tPJH
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://ep-purple-leaf-a1wz2tog-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_YnhT6EX4tPJH
+#    url: ${DB_URL}
+#    username: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
 
     driver-class-name: org.postgresql.Driver
     # High-scale tip: Neon uses a pooler, so we tune Hikari to be more efficient
@@ -18,6 +18,13 @@ spring:
       minimum-idle: 5
       idle-timeout: 300000
       max-lifetime: 1800000
+
+application:
+  security:
+    jwt:
+      expiration: 86400000 # 24 hours in milliseconds
+      secret-key: 4261656C64756E674261656C64756E674261656C64756E674261656C64756E67 # Replace with a secure, long, randomly generated Base64 encoded string
+
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
